@@ -122,3 +122,22 @@ Position the company as a Revenue Recovery and Competitive Intelligence business
 
 Business outcomes are more valuable than technology implementation.
 
+---
+
+# 2026-07-02
+
+## Decision
+
+Use psychological hooks and teaser statistics on the cover page and executive summary.
+
+## Reason
+
+Most business owners will not read long reports. Presenting the most important findings immediately increases engagement and encourages prospects to continue reading.
+
+The report should:
+
+- Create curiosity
+- Highlight competitor advantages
+- Demonstrate financial impact
+- Increase perceived value
+- Drive consultation bookings

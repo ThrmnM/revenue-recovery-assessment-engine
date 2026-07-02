@@ -203,3 +203,35 @@ An AI-powered operating system for home service businesses that combines:
 - Operations
 - Customer communication
 - Business growth recommendations
+
+# Report Psychology & Conversion Hooks
+
+## The Cover Page Hook
+
+Use a strong teaser on the cover page to create curiosity and encourage the prospect to continue reading.
+
+Examples:
+
+- ⚠️ You May Be Losing $143,000 Per Year
+- Your Competitors Are Outperforming You by 32%
+- Revenue Recovery Score™: 58/100
+- Competitor Average: 87/100
+
+Purpose:
+
+Create a "stop the scroll" moment and encourage the prospect to read the report.
+
+---
+
+## Executive Summary Hook
+
+Present the biggest findings immediately:
+
+- Estimated annual revenue leakage
+- Competitor comparison
+- Biggest operational problems
+- Opportunity score
+
+Goal:
+
+Generate curiosity, urgency, and emotional buy-in before presenting the detailed analysis.

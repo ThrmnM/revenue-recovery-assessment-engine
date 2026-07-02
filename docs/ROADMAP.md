@@ -15,11 +15,18 @@
 
 # Phase 2 – Assessment Engine
 
+# Phase 2 – Assessment Engine
+
 - [ ] Multi-page PDF Report
 - [ ] Branded Theme
 - [ ] Charts and Visualizations
 - [ ] Revenue Leakage Estimates
+- [ ] Hook-Based Cover Page
 - [ ] Executive Summary
+- [ ] Competitive Revenue Gap Analysis™
+- [ ] Revenue Left on the Table™
+- [ ] Competitor Benchmarking
+- [ ] Action Plan Generator
 
 ---
 
