@@ -278,3 +278,19 @@ The Revenue Recovery Assessment™ becomes the entry point into:
 Revenue Recovery OS™
 
 An AI-powered operating system for home service businesses.
+
+# Competitor Selection Rules
+
+Competitors must:
+
+- Operate in the prospect's service area.
+- Offer the same or very similar services.
+- Have significant review activity.
+- Be recognizable to the prospect.
+- Be selected using objective criteria.
+
+Do not use generic or unrelated competitors.
+
+If sufficient competitor data cannot be found, the report should state:
+
+"Additional competitor research is recommended before completing this section."

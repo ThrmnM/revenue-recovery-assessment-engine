@@ -141,3 +141,15 @@ The report should:
 - Demonstrate financial impact
 - Increase perceived value
 - Drive consultation bookings
+
+---
+
+# 2026-07-04
+
+## Decision
+
+Only use direct local competitors in the Competitive Revenue Gap Analysis™.
+
+## Reason
+
+The prospect must immediately recognize the competitors for the analysis to feel credible and valuable.
