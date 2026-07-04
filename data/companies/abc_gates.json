@@ -1,0 +1,12 @@
+{
+  "company_name": "ABC Gates & Fencing",
+  "city": "Sacramento",
+  "state": "CA",
+  "rating": 3.8,
+  "review_count": 43,
+  "missed_calls": true,
+  "quote_delay": true,
+  "poor_communication": true,
+  "late_technicians": true,
+  "estimated_revenue": 450000
+}
