@@ -94,3 +94,6 @@ An AI-powered operating system for home service businesses.
 🔲 Competitor Scraping Module
 🔲 Google Search Visibility Module
 🔲 AI Narrative Generator
+
+✅ Recommendation Engine v1
+
