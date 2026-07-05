@@ -2,6 +2,9 @@ from modules.data_loader import (
     load_company,
     load_competitors,
 )
+from modules.distress_score import (
+    calculate_distress_score,
+)
 
 
 def generate_summary(company_id):
@@ -193,7 +196,7 @@ Overall Opportunity Assessment:
 {opportunity}
 """
 
-    return {
+    assessment = {
         "metrics": metrics,
         "top_competitor": top_competitor,
         "market_position": market_position,
@@ -213,3 +216,17 @@ Overall Opportunity Assessment:
         "opportunity_level":
             opportunity,
     }
+
+    distress_assessment = calculate_distress_score(
+        company,
+        competitors,
+        assessment,
+    )
+
+    assessment["distress_assessment"] = distress_assessment
+    assessment["distress_score"] = distress_assessment["score"]
+    assessment["distress_grade"] = distress_assessment["grade"]
+    assessment["distress_priority"] = distress_assessment["priority"]
+    assessment["distress_reasons"] = distress_assessment["reasons"]
+
+    return assessment
