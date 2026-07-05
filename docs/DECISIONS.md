@@ -153,3 +153,108 @@ Only use direct local competitors in the Competitive Revenue Gap Analysis™.
 ## Reason
 
 The prospect must immediately recognize the competitors for the analysis to feel credible and valuable.
+
+
+---
+
+# ADR-004: Standardize Customer-Facing Terminology
+
+**Status:** Accepted
+
+**Date:** 2026-07-05
+
+## Decision
+
+The Revenue Recovery Assessment is a business sales document first and a technical report second.
+
+All customer-facing terminology must use business language rather than developer or analytical terminology.
+
+This standard applies to:
+
+- Console output
+- PDF reports
+- Charts and graphs
+- Email outreach
+- Landing pages
+- Future web dashboard
+- AI-generated reports
+
+---
+
+## Approved Terminology
+
+| Deprecated | Approved Standard |
+|------------|-------------------|
+| Rating | Google Rating |
+| Reviews | Google Reviews |
+| Rating Gap | Google Rating Advantage |
+| Review Gap | Review Advantage |
+| Competitor | Direct Competitor (where appropriate) |
+| Estimated Revenue | Estimated Revenue Opportunity |
+| Opportunity Level | Revenue Opportunity Level |
+
+---
+
+## Rationale
+
+Business owners immediately understand Google metrics because they see them every day when searching for local businesses.
+
+The report should continually reinforce that these metrics directly influence:
+
+- Google Search visibility
+- Customer trust
+- Call volume
+- Lead generation
+- Revenue growth
+
+Rather than simply reporting statistics, every metric should answer the question:
+
+> "What does this mean for my business?"
+
+---
+
+## Product Philosophy
+
+Every page of the Revenue Recovery Assessment must accomplish three objectives:
+
+1. Explain the current situation.
+2. Demonstrate the business impact.
+3. Naturally lead the reader to the next page.
+
+The report should progressively build urgency and credibility until the final recommendation and call-to-action.
+
+---
+
+## Writing Standard
+
+Whenever possible, use terminology that is familiar to business owners rather than developers.
+
+Examples:
+
+✓ Google Rating
+
+✓ Google Reviews
+
+✓ Revenue Opportunity
+
+✓ Revenue Leakage
+
+✓ Market Position
+
+Avoid technical or analytical wording unless it provides additional clarity.
+
+---
+
+## Future Rule
+
+Before introducing any new metric, chart, heading, or section into the report, ask:
+
+**"Would a business owner immediately understand what this means and why it matters?"**
+
+If the answer is no, rewrite it using business-first language.
+
+---
+
+**Reason for Adoption**
+
+Consistent terminology improves readability, strengthens perceived authority, reinforces the report's purpose as a sales asset, and ensures consistency across all future modules of the Revenue Recovery System.

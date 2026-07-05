@@ -294,3 +294,121 @@ Do not use generic or unrelated competitors.
 If sufficient competitor data cannot be found, the report should state:
 
 "Additional competitor research is recommended before completing this section."
+
+
+---
+
+# Report Design Principles (Version 2)
+
+The Revenue Recovery Assessment is designed to function as a persuasive sales document rather than a traditional business report.
+
+Each page has a specific psychological objective and should naturally lead the reader to the next page.
+
+---
+
+## Cover Page
+
+Objective:
+
+Stop the reader from putting the report down.
+
+Primary Content:
+
+- Company Name
+- Revenue Leakage Estimate
+- Revenue Opportunity Level
+- One compelling "hook" or teaser showing what competitors are achieving that the prospect is missing.
+
+Example:
+
+> Your two highest-rated competitors have generated over 600 Google Reviews while your business has only 43.
+
+The objective is to create immediate curiosity.
+
+---
+
+## Executive Summary
+
+Objective:
+
+Answer three questions immediately.
+
+- How much money may be leaking?
+- Why is it happening?
+- Can it be fixed?
+
+The executive summary should focus on business outcomes, not technical analysis.
+
+---
+
+## Competitive Analysis
+
+Display Title:
+
+# Why Customers Choose Your Competitors First
+
+Objective:
+
+Demonstrate exactly why competitors receive more customer enquiries.
+
+Display:
+
+- Google Rating
+- Google Reviews
+- Review Advantage
+- Google Rating Advantage
+- Estimated Revenue Opportunity
+- Competitive Strengths
+- Customer Review Highlights (future)
+- Revenue Impact
+
+The competitors displayed MUST be genuine local competitors operating within the prospect's service area.
+
+Accuracy is critical.
+
+If incorrect competitors are shown, the credibility of the entire report is reduced.
+
+---
+
+## Recommendations
+
+Objective:
+
+Present practical solutions that directly address each identified revenue leak.
+
+Every recommendation should include:
+
+- Problem
+- Solution
+- Business Benefit
+- Estimated Revenue Recovery
+
+---
+
+## 90-Day Action Plan
+
+Objective:
+
+Reduce overwhelm.
+
+Show the prospect that improvement is achievable through a structured implementation plan.
+
+---
+
+## Final Call to Action
+
+Objective:
+
+Convert interest into action.
+
+The final page should encourage the prospect to book a consultation or strategy session before competitors continue increasing their market advantage.
+
+---
+
+# Golden Rule
+
+Every page should answer one question while creating curiosity about the next page.
+
+The reader should never feel they have reached the end until they reach the final call-to-action.
+
+
