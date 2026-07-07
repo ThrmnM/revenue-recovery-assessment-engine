@@ -250,3 +250,151 @@ Future versions may include:
 - Ongoing performance monitoring
 
 Every enhancement should build upon this modular foundation while maintaining consistency in architecture, terminology, and customer experience.
+
+# Operating Priorities
+
+The purpose of this project is not simply to build software.
+
+The purpose is to build a sustainable Business Intelligence platform that generates revenue by helping service businesses improve profitability, efficiency, customer experience, and operational excellence through Business Intelligence assessments, automation, AI, and intelligent software.
+
+Every engineering decision should support that mission.
+
+When choosing between multiple possible tasks, always follow these priorities.
+
+---
+
+## Priority 0 — Survival Before Scale
+
+The immediate objective is to generate enough revenue to stabilize the founder's current situation.
+
+Features that directly help secure paying clients always take precedence over features intended primarily for future scalability.
+
+Build what is needed today while laying a solid foundation for tomorrow.
+
+Revenue funds growth.
+
+Growth funds the long-term vision.
+
+---
+
+## Priority 1 — Revenue First
+
+The highest ongoing priority is acquiring, serving, and retaining paying clients.
+
+Engineering work that directly improves sales, delivery, customer value, or client retention should always take precedence over internal improvements.
+
+If a task helps deliver more Business Intelligence reports to more prospects, it is likely the correct priority.
+
+---
+
+## Priority 2 — Ship Before Perfect
+
+Working software is more valuable than perfect software.
+
+Deliver practical solutions.
+
+Avoid unnecessary complexity.
+
+Improve continuously through iteration.
+
+Do not delay delivery in pursuit of perfection.
+
+---
+
+## Priority 3 — Real Feedback Beats Assumptions
+
+Real businesses provide better guidance than theoretical discussions.
+
+Whenever possible:
+
+• Test ideas with real prospects.
+
+• Validate assumptions with actual customers.
+
+• Allow customer feedback to guide future development.
+
+---
+
+## Priority 4 — Automation Follows Manual Success
+
+Never automate a process that has not already proven valuable when performed manually.
+
+First understand the workflow.
+
+Then optimize it.
+
+Finally automate it.
+
+Automation should amplify proven systems rather than compensate for poor processes.
+
+---
+
+## Priority 5 — One Source of Truth
+
+Business Intelligence calculations must exist only once.
+
+The Assessment Object is the canonical source of business intelligence.
+
+Every downstream component—including PDFs, emails, dashboards, CRM modules, APIs, Google Sheets, and future applications—must consume the Assessment Object rather than recreating calculations.
+
+---
+
+## Priority 6 — Build Assets, Not Features
+
+Every engineering effort should create reusable long-term assets.
+
+Favor reusable modules, shared components, and scalable architecture over one-off implementations.
+
+Every completed component should increase the value of the platform.
+
+---
+
+## Priority 7 — Modular Everything
+
+Maintain a modular architecture.
+
+Minimize coupling.
+
+Maximize reuse.
+
+Every module should be independently understandable, testable, replaceable, and maintainable without affecting unrelated systems.
+
+---
+
+## Priority 8 — Documentation Is Part of the Product
+
+Documentation is production code.
+
+Architectural decisions, engineering philosophy, and implementation rationale should always be documented.
+
+Future developers and AI agents should understand the project by reading the documentation rather than reverse engineering the source code.
+
+---
+
+## Priority 9 — Long-Term Legacy
+
+The long-term objective is to build a sustainable software platform capable of evolving for decades.
+
+Every engineering decision should consider:
+
+• Maintainability
+
+• Simplicity
+
+• Readability
+
+• Reliability
+
+• Longevity
+
+This project is intended to become a lasting business asset that can continue serving customers and supporting future generations.
+
+---
+
+## Guiding Principle
+
+When uncertainty exists between multiple engineering decisions, always ask:
+
+"Which option helps us create more value for real customers while strengthening the long-term platform?"
+
+If one option improves architecture but delays customer value unnecessarily, prefer the solution that delivers value first while preserving architectural integrity.
