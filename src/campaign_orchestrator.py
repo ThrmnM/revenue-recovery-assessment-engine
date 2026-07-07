@@ -2,11 +2,10 @@
 
 This module reads campaign configuration, loads mock prospects, prepares a
 campaign output workspace, and runs each prospect through the Business
-Intelligence Engine. It intentionally does not generate reports, write sheets,
+Intelligence Engine. It intentionally does not generate assessment reports,
 send messages, call Supabase, or use APIs.
 """
 
-import copy
 import json
 import logging
 from datetime import date
@@ -14,13 +13,14 @@ from pathlib import Path
 from typing import Any, Dict, List, Optional
 
 from exporters.campaign_exporter import export_campaign_results
+from models.assessment import Assessment
 from modules.business_intelligence import calculate_business_intelligence
 from repositories.campaign_results_repository import (
     CampaignResultsRepository,
 )
 
 
-CAMPAIGN_CONFIG_PATH = Path("data/campaigns/campaign_config.json")
+CAMPAIGN_CONFIG_PATH = Path("config/campaign_config.json")
 MOCK_PROSPECTS_PATH = Path("data/mock/mock_prospects.json")
 CAMPAIGN_OUTPUT_ROOT = Path("output/campaigns")
 COMPANY_DATA_DIR = Path("data/companies")
@@ -304,6 +304,8 @@ def process_prospect(
     prospect: Dict[str, Any],
     campaign_results_repository: CampaignResultsRepository,
     campaign_id: str,
+    industry: str,
+    country: str,
 ) -> bool:
     """Process one prospect and store its assessment in the repository."""
 
@@ -318,41 +320,18 @@ def process_prospect(
         if competitors is None:
             return False
 
-        assessment = run_business_intelligence(company, competitors)
-        assessment_result = copy.deepcopy(assessment)
-        assessment_result["company_name"] = company.get(
-            "company_name",
-            prospect.get("company_name", "Unknown"),
+        business_intelligence = run_business_intelligence(company, competitors)
+        assessment = Assessment.from_business_intelligence(
+            campaign_id=campaign_id,
+            prospect=prospect,
+            company_profile=company,
+            competitor_profile=competitors,
+            business_intelligence=business_intelligence,
+            industry=industry,
+            country=country,
+            assessment_date=date.today().isoformat(),
         )
-        assessment_result["prospect_id"] = prospect.get("prospect_id")
-        assessment_result["city"] = prospect.get(
-            "city",
-            company.get("city", ""),
-        )
-        assessment_result["state"] = prospect.get(
-            "state",
-            company.get("state", ""),
-        )
-        assessment_result["website"] = prospect.get(
-            "website",
-            company.get("website", ""),
-        )
-        assessment_result["facebook"] = prospect.get(
-            "facebook_url",
-            company.get("facebook_url", ""),
-        )
-        assessment_result["email"] = prospect.get(
-            "email",
-            company.get("email", ""),
-        )
-        assessment_result["phone"] = prospect.get(
-            "phone",
-            company.get("phone", ""),
-        )
-        assessment_result["communication_readiness"] = "Pending"
-        assessment_result["campaign_id"] = campaign_id
-        assessment_result["assessment_date"] = date.today().isoformat()
-        campaign_results_repository.add_result(assessment_result)
+        campaign_results_repository.add_result(assessment)
         return True
     except (FileNotFoundError, ValueError, OSError) as exc:
         logger.warning(
@@ -441,6 +420,8 @@ def run_campaign(
 
     print_campaign_summary(config, prospects)
     campaign_id = str(get_required_value(config, "campaign", "campaign_id"))
+    industry = str(get_required_value(config, "industry", "primary"))
+    country = str(get_required_value(config, "geography", "country"))
     output_dir = CAMPAIGN_OUTPUT_ROOT / campaign_id
     logger.info("Campaign workspace prepared: %s", output_dir)
 
@@ -448,7 +429,13 @@ def run_campaign(
     campaign_results_repository = CampaignResultsRepository()
 
     for prospect in prospects:
-        process_prospect(prospect, campaign_results_repository, campaign_id)
+        process_prospect(
+            prospect,
+            campaign_results_repository,
+            campaign_id,
+            industry,
+            country,
+        )
 
     summarize_campaign(prospects, campaign_results_repository)
     export_campaign_results(

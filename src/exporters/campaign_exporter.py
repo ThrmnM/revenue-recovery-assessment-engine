@@ -82,7 +82,8 @@ def build_prospect_rows(
 
     rows = []
 
-    for result in repository.get_all():
+    for assessment in repository.get_all():
+        result = assessment.to_flat_dict()
         rows.append({
             "Prospect ID": result.get("prospect_id", ""),
             "Company": result.get("company_name", ""),
