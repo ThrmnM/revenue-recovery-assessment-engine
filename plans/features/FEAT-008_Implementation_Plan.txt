@@ -1,0 +1,110 @@
+Plan
+FEAT-008 Business Health Assessment Engine Implementation Plan
+
+Sources
+No sources yet
+FEAT-008 Business Health Assessment Engine Implementation Plan
+Summary
+Build a dedicated business_health_assessment module that becomes the central scoring layer for prospect health, separate from PDF rendering and recommendation copy. It should consume normalized company, competitor, website, Facebook, revenue, and automation inputs, then return a structured assessment object used by summaries, recommendations, reports, ranking, and outreach queues.
+
+This feature should consolidate current scattered scoring logic from src/scoring_engine.py, src/modules/distress_score.py, and src/modules/executive_summary.py without breaking existing report generation.
+
+Key Changes
+Create a focused scoring module under src/modules/ for business health assessment.
+Define a stable assessment result shape containing:
+overall_score
+grade
+priority_score
+category_scores
+strengths
+weaknesses
+service_opportunities
+missing_inputs
+score_explanation
+Keep PDF generation as a consumer only; do not embed scoring rules inside report layout code.
+Replace hardcoded placeholders like automation_score = 15 with values derived from normalized input or explicitly marked as missing.
+Add a Business Health Assessment PDF section immediately after Executive Summary using existing report helper patterns.
+Architecture Improvements
+Separate the engine into clear responsibilities:
+input normalization
+category scoring
+overall score calculation
+grade/priority classification
+service opportunity mapping
+report-ready formatting
+Treat current distress scoring as one category or adjacent signal, not the whole health engine.
+Move thresholds and weights into named constants or a simple rules configuration so future scoring changes do not require rewriting business logic.
+Return structured data first, narrative second. Executive Summary and PDF copy should be generated from assessment data, not mixed into the scoring engine.
+Prefer pure functions that accept dictionaries and return dictionaries, matching current project style while remaining easy to test.
+Missing Inputs To Add
+The feature brief requires inputs not currently present in data/companies/abc_gates.json:
+
+Website:
+website_exists
+website_https
+website_mobile_friendly
+website_contact_form
+optional website_last_updated for “Outdated Website”
+Facebook:
+facebook_page_exists
+facebook_last_post_date
+facebook_active_within_90_days
+Revenue:
+estimated_revenue_leakage, or enough fields to calculate it consistently
+Competitor analysis:
+competitor_review_gap
+rating_gap
+top competitor reference
+Automation:
+replace placeholder automation score with automation_score or calculated operational inputs
+Missing optional inputs should not crash the report. They should lower confidence, appear in missing_inputs, and use neutral/default scoring behavior.
+
+Better Abstractions
+Add category score calculators:
+google_reputation
+competitive_position
+revenue_leakage
+website_presence
+social_presence
+automation_maturity
+Add a service opportunity mapper:
+poor reviews -> Reputation Management
+no website -> Website Design
+weak website signals -> Website Refresh
+inactive Facebook -> Monthly Social Media Management
+low automation -> Revenue Recovery Installation
+Add grade and priority helpers shared by health, distress, ranking, and outreach workflows.
+Add confidence or completeness metadata so downstream systems know whether the assessment is based on full data or partial data.
+Future Extensibility
+Keep category weights configurable so industry-specific scoring can be added later.
+Support new channels such as Google Business Profile completeness, review velocity, ads presence, CRM usage, booking systems, response time, and lead follow-up.
+Allow service opportunity mappings to expand without changing core score calculation.
+Preserve one assessment output object that can feed:
+Revenue Recovery Report
+Prospect Ranking Engine
+Weekly Outreach Queue
+sales scripts
+future dashboard/API responses
+Potential Risks
+Score meaning could conflict with existing distress score semantics. Define clearly whether higher means healthier or more urgent.
+Current grade logic in distress scoring gives high distress an “A”, which may confuse health grading. Health grades should use conventional meaning: high score equals better grade.
+Hardcoded revenue assumptions could produce misleading dollar figures. Revenue leakage calculations need documented formulas and source fields.
+Missing website/Facebook data could unfairly penalize prospects unless missing data is tracked separately from negative signals.
+PDF integration may create a large report file if more logic is added directly to generate_report.py; keep rendering helpers small and data-driven.
+Existing console-style test files are not true assertions. Add assert-based tests for scoring behavior before relying on the engine downstream.
+Test Plan
+Unit test each category calculator with high, medium, low, and missing-input cases.
+Unit test overall score weighting and grade boundaries.
+Unit test service opportunity mapping for each trigger condition.
+Unit test that missing optional inputs are reported without crashing.
+Regression test current abc_gates flow to ensure existing summary, recommendations, and PDF generation still work.
+Generate a sample PDF and verify the Business Health Assessment page appears immediately after Executive Summary.
+Assumptions
+The engine should use a 0-100 health score where higher means healthier.
+priority_score should represent sales urgency, not business quality; weaker health and larger leakage should increase priority.
+The first implementation should stay dictionary-based to match the current project and avoid introducing dataclass/schema complexity too early.
+Existing scoring behavior should remain available during transition until the new health assessment output replaces it deliberately.
+
+Worked for 1m 43s
+
+

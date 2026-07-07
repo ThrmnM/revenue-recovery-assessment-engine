@@ -5,6 +5,9 @@ from modules.data_loader import (
 from modules.distress_score import (
     calculate_distress_score,
 )
+from modules.business_intelligence import (
+    calculate_business_intelligence,
+)
 
 
 def generate_summary(company_id):
@@ -26,10 +29,6 @@ def generate_summary(company_id):
         review_gap * 500
     )
 
-    # Temporary until we build the
-    # full automation scoring module.
-    automation_score = 15
-
     # Opportunity Level
     if estimated_loss >= 100000:
         opportunity = "HIGH 🔴"
@@ -49,6 +48,25 @@ def generate_summary(company_id):
         recommended_action = (
             "Maintain Current Performance"
         )
+
+    assessment_context = {
+        "estimated_loss":
+            estimated_loss,
+        "review_gap":
+            review_gap,
+        "opportunity_level":
+            opportunity,
+    }
+
+    business_intelligence_assessment = calculate_business_intelligence(
+        company,
+        competitors,
+        assessment_context,
+    )
+
+    automation_score = business_intelligence_assessment[
+        "category_scores"
+    ]["automation_readiness"]["score"]
 
     # Top Competitor
     top_competitor = max(
@@ -215,6 +233,28 @@ Overall Opportunity Assessment:
             automation_score,
         "opportunity_level":
             opportunity,
+        "business_intelligence_assessment":
+            business_intelligence_assessment,
+        "business_intelligence_score":
+            business_intelligence_assessment[
+                "business_intelligence_score"
+            ],
+        "business_grade":
+            business_intelligence_assessment[
+                "business_grade"
+            ],
+        "revenue_opportunity_score":
+            business_intelligence_assessment[
+                "revenue_opportunity_score"
+            ],
+        "priority_score":
+            business_intelligence_assessment[
+                "priority_score"
+            ],
+        "assessment_confidence":
+            business_intelligence_assessment[
+                "assessment_confidence"
+            ],
     }
 
     distress_assessment = calculate_distress_score(

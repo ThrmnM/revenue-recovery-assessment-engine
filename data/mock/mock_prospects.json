@@ -1,0 +1,28 @@
+[
+  {
+    "prospect_id": "GF-US-000001",
+    "company_name": "ABC Gates & Fencing",
+    "city": "Sacramento",
+    "state": "California",
+    "country": "United States",
+
+    "website": "https://abcgates.example",
+
+    "google_rating": 4.2,
+    "review_count": 48,
+
+    "facebook_url": "https://facebook.com/abcgates",
+    "facebook_last_post_days": 120,
+
+    "email": "info@abcgates.example",
+    "phone": "(916) 555-0101",
+
+    "business_intelligence_score": 61,
+    "revenue_opportunity_score": 91,
+    "priority_score": 96,
+
+    "priority": "CRITICAL",
+
+    "assessment_confidence": 92
+  }
+]

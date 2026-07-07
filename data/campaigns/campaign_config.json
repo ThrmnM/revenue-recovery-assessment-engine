@@ -1,0 +1,34 @@
+{
+  "campaign": {
+    "campaign_id": "US-GF-20260707-001",
+    "campaign_name": "US Gates & Fencing Initial Outreach",
+    "status": "ACTIVE"
+  },
+
+  "geography": {
+    "region": "North America",
+    "country": "United States",
+    "state": "ALL"
+  },
+
+  "industry": {
+    "primary": "Automatic Gates & Fencing"
+  },
+
+  "prospect_selection": {
+    "max_prospects": 200,
+    "minimum_priority": "HIGH",
+    "minimum_business_intelligence_score": 0
+  },
+
+  "outputs": {
+    "generate_pdf": true,
+    "generate_google_sheet": true,
+    "generate_email_queue": true,
+    "generate_campaign_summary": true
+  },
+
+  "notifications": {
+    "notify_on_completion": true
+  }
+}

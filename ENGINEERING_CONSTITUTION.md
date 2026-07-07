@@ -1,149 +1,69 @@
 # Revenue Recovery System
-# Engineering Constitution v1.0
+# ENGINEERING CONSTITUTION
+Version 2.0
 
-## Mission
+---
 
-Build the fastest, highest-quality AI consulting platform for local service businesses.
+# Mission
 
-Every line of code must move the system toward a production-ready SaaS.
+Build the fastest, simplest and most effective AI-powered business growth platform for local service businesses.
+
+Every feature must either:
+
+• Generate revenue
+• Recover revenue
+• Save time
+• Improve customer experience
+
+If it does none of these, it probably doesn't belong.
 
 ---
 
 # Core Principles
 
-1. Production First
+## 1. Production First
+
+No placeholder code.
 
 No demo code.
-No placeholder code.
-Everything must be production quality.
+
+No fake data unless used for testing.
+
+Every completed feature should be deployable.
 
 ---
 
-2. Ship Daily
+## 2. MVP First
 
 Working software beats perfect software.
 
-Small completed features are preferred over unfinished big features.
+Revenue funds refinement.
+
+Ship.
+
+Learn.
+
+Improve.
 
 ---
 
-3. Build Once
+## 3. Simplicity Wins
 
-Every module must be reusable.
+Avoid unnecessary complexity.
 
-Never duplicate logic.
+Avoid enterprise bloat.
 
----
-
-4. Everything Documents Itself
-
-Every major feature updates:
-
-• DECISIONS.md
-• SYSTEM_ARCHITECTURE.md
-• BUSINESS_MODEL.md (if applicable)
-
-Documentation is part of the task.
+Every feature should have a clear business purpose.
 
 ---
 
-5. Every Feature Must Increase Revenue
+## 4. Build Assets
 
-Every module must answer:
+Everything becomes an asset.
 
-"How does this help generate or recover more revenue?"
+Code
 
-If it doesn't...
-
-it probably doesn't belong.
-
----
-
-6. Human Before AI
-
-The AI assists.
-
-The business owner stays in control.
-
-The system explains:
-
-WHY
-
-WHAT
-
-HOW MUCH
-
-NEXT STEP
-
----
-
-7. PDF Quality
-
-Every assessment should look like it came from a $20,000 consulting engagement.
-
-No generic reports.
-
-Professional typography.
-
-Professional spacing.
-
-Professional branding.
-
-Professional language.
-
----
-
-8. Automation First
-
-If a task can be automated...
-
-automate it.
-
-If it can be scheduled...
-
-schedule it.
-
-If AI can do it...
-
-AI should do it.
-
----
-
-9. Every Module Must Be Testable
-
-Every feature needs:
-
-test_*.py
-
-before considered complete.
-
----
-
-10. Competitive Advantage
-
-Never copy competitors.
-
-Always ask:
-
-"What would make this obviously better?"
-
----
-
-11. Distress First
-
-Prospects are ranked by opportunity.
-
-Highest Distress Score gets contacted first.
-
-Revenue first.
-
-Everything else later.
-
----
-
-12. Build Assets
-
-Everything produced becomes an asset.
+Documentation
 
 Prompts
 
@@ -153,66 +73,447 @@ Reports
 
 Automation
 
-Code
+Workflows
 
-Branding
+SOPs
+
+Nothing should have to be recreated twice.
+
+---
+
+## 5. Revenue First
+
+Every module should answer one question:
+
+"How does this help the customer make or recover more money?"
+
+---
+
+# Modular Construction Protocol
+
+Everything is built from the top down.
+
+Capability
+
+↓
+
+Module
+
+↓
+
+Feature
+
+↓
+
+Task
+
+Example
+
+Capability
+
+Assessment Engine
+
+↓
+
+Module
+
+Competitive Analysis
+
+↓
+
+Feature
+
+Google Visibility Analysis
+
+↓
+
+Task
+
+Calculate visibility score
+
+Every Feature must be completed before moving to the next Feature.
+
+Every Module must be completed before moving to the next Module.
+
+The system must remain runnable after every completed task.
+
+---
+
+# AI Collaboration Workflow
+
+This project uses two AI systems.
+
+Each has a specific responsibility.
+
+---
+
+## ChatGPT
+
+Responsible for:
+
+Business strategy
+
+Architecture
+
+Planning
+
+Brainstorming
+
+Feature design
+
+Prioritisation
+
+Code review
+
+Prompt engineering
 
 Documentation
 
-All reusable.
+Quality assurance
+
+Decision making
 
 ---
 
-13. Simplicity Wins
+## Codex
 
-No unnecessary complexity.
+Responsible for:
 
-No enterprise bloat.
+Technical planning
 
-No feature because "everyone else has it."
+Implementation
 
-Only features that save time or make money.
+Refactoring
 
----
+Testing
 
-14. Speed
+Bug fixing
 
-Good decisions now beat perfect decisions next month.
+Code generation
 
----
-
-15. MVP First
-
-Get to paying customers.
-
-Refine later.
-
-Revenue funds perfection.
+Repository operations
 
 ---
 
-Definition of Done
+# Two-Brain Rule
 
-A task is complete only when:
+No significant feature enters production until it has been reviewed by two independent reasoning processes.
 
-✓ Code works
+Workflow
+
+ChatGPT
+
+↓
+
+Codex Planning
+
+↓
+
+ChatGPT Review
+
+↓
+
+Codex Implementation
+
+↓
+
+Testing
+
+↓
+
+Git Commit
+
+---
+
+# Planning Protocol
+
+Every feature begins inside ChatGPT.
+
+Before implementation we answer:
+
+1. Why are we building it?
+
+2. Which Capability does it belong to?
+
+3. Which Module does it belong to?
+
+4. Which Feature is being implemented?
+
+5. What does success look like?
+
+Only then is Codex asked to produce a technical implementation plan.
+
+The implementation plan is reviewed before coding begins.
+
+---
+
+# Implementation Protocol
+
+Codex receives only clearly defined work.
+
+Every implementation request should contain:
+
+Objective
+
+Files to modify
+
+Requirements
+
+Acceptance criteria
+
+Implementation should begin only after the plan has been approved.
+
+---
+
+# Testing Protocol
+
+Every module should include testing.
+
+No feature is complete until:
+
+✓ Code runs
 
 ✓ Tests pass
 
+✓ Output verified
+
 ✓ Documentation updated
 
-✓ PDF/output verified
+✓ Git committed
+
+✓ Git pushed
+
+---
+
+# Documentation Protocol
+
+Whenever functionality changes, update documentation where applicable.
+
+Possible documents include:
+
+ARCHITECTURE.md
+
+BUSINESS_MODEL.md
+
+DECISIONS.md
+
+ROADMAP.md
+
+SOP.md
+
+README.md
+
+Engineering documentation is considered part of development.
+
+---
+
+# Git Protocol
+
+Commit often.
+
+Commit working software.
+
+Never commit broken code.
+
+Every commit should leave the repository in a deployable state.
+
+Commit messages should explain WHY the change was made.
+
+---
+
+# PDF Standard
+
+Every assessment should appear to have been produced by a professional consulting firm.
+
+Professional typography
+
+Professional spacing
+
+Professional colour palette
+
+Clear hierarchy
+
+Business-focused language
+
+No generic developer output.
+
+---
+
+# Automation First
+
+If a repetitive task can be automated,
+
+automate it.
+
+If AI can perform it reliably,
+
+AI should perform it.
+
+Humans should make decisions.
+
+Machines should execute them.
+
+---
+
+# Prospect Philosophy
+
+Revenue follows prioritisation.
+
+Businesses are ranked by:
+
+Revenue Opportunity
+
+Distress Score
+
+Business Impact
+
+Sales effort should always begin with the highest opportunity prospects.
+
+---
+
+# Version Control Philosophy
+
+Version 1
+
+Working.
+
+Version 2
+
+Better.
+
+Version 3
+
+Excellent.
+
+Never delay Version 1 while chasing Version 3.
+
+---
+
+# Definition of Done
+
+A task is complete only when:
+
+✓ Business objective achieved
+
+✓ Code implemented
+
+✓ Tested successfully
+
+✓ Documentation updated
+
+✓ Committed
+
+✓ Pushed to GitHub
 
 ✓ Ready for production
 
 ---
 
-North Star
+# North Star
 
-Every completed assessment should make a business owner think:
+Every assessment should make the business owner think:
 
-"I need these people to build this for my company."
+"I don't just want this report...
 
-If it doesn't create that reaction...
+I want these people to build this system for my business."
 
-keep improving.
+If the software creates that reaction,
+
+the mission is being accomplished.
+
+---
+
+# Campaign-First Architecture
+
+The Revenue Recovery System is not a PDF generator.
+
+It is an automated campaign engine.
+
+Every module exists to support the complete workflow from prospect discovery to booked appointments.
+
+The system shall always be designed around the following pipeline:
+
+Prospect Discovery
+        ↓
+Business Intelligence Engine
+        ↓
+Assessment Generation
+        ↓
+PDF Generation
+        ↓
+Email Generation
+        ↓
+Campaign Queue
+        ↓
+n8n Automation
+        ↓
+Gmail Delivery
+        ↓
+Appointments
+        ↓
+Clients
+
+No module may be developed in isolation without considering how it fits into the complete campaign pipeline.
+
+---
+
+# Mock-First Development
+
+All new features shall be developed using deterministic mock data.
+
+External services including:
+
+• Google
+• Facebook
+• Gmail
+• Search APIs
+• Maps APIs
+• Social APIs
+
+must not become implementation dependencies until the internal workflow has been fully validated.
+
+Mock data shall mirror production data structures as closely as possible.
+
+Replacing mock providers with live providers should require changing only the data provider layer.
+
+---
+
+# Single Source Of Truth
+
+Prospect information shall exist in one authoritative location only.
+
+Supabase will become the primary datastore.
+
+No duplicated business logic.
+
+No duplicated scoring.
+
+No duplicated assessment calculations.
+
+Every downstream component consumes data from the Business Intelligence Engine.
+
+---
+
+# Explain Everything
+
+Every numerical score generated by the system must be explainable.
+
+Every recommendation must reference supporting evidence.
+
+Every weakness must include at least one practical recommendation.
+
+Every assessment must include positive findings whenever supported by available evidence.
+
+Numbers without explanations are prohibited.
+
+---
+
+# Human Approval Before Outreach
+
+Campaigns may be generated automatically.
+
+Emails may be personalized automatically.
+
+PDFs may be generated automatically.
+
+Final outreach remains subject to operator approval unless explicitly configured otherwise.

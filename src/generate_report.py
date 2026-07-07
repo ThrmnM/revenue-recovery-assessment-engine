@@ -613,6 +613,173 @@ def build_executive_summary(story, company, summary, styles):
         )
     )
     story.append(Spacer(1, 16))
+    story.append(PageBreak())
+
+
+def build_business_intelligence_assessment(story, assessment, styles):
+    """Build the Digital Business Health Assessment page."""
+
+    metrics = [
+        metric_box(
+            "Business Intelligence Score",
+            f"{assessment['business_intelligence_score']}/100",
+            styles,
+        ),
+        metric_box("Business Grade", assessment["business_grade"], styles),
+        metric_box(
+            "Assessment Confidence",
+            f"{assessment['assessment_confidence']}%",
+            styles,
+        ),
+        metric_box(
+            "Revenue Opportunity Score",
+            f"{assessment['revenue_opportunity_score']}/100",
+            styles,
+        ),
+    ]
+
+    story.append(section_title("Digital Business Health Assessment", styles))
+    story.append(metric_grid(metrics))
+    story.append(Spacer(1, 8))
+    story.append(_category_score_table(assessment["category_scores"], styles))
+    story.append(Spacer(1, 8))
+
+    story.append(
+        card(
+            "Strengths",
+            bullet_list(_top_items(assessment["strengths"], 5), styles),
+            styles,
+        )
+    )
+    story.append(
+        card(
+            "Weaknesses",
+            bullet_list(_top_items(assessment["weaknesses"], 5), styles),
+            styles,
+        )
+    )
+    story.append(
+        card(
+            "Revenue Opportunities",
+            bullet_list(
+                _top_items(
+                    [
+                        _format_opportunity(item)
+                        for item in assessment["revenue_opportunities"]
+                    ],
+                    5,
+                ),
+                styles,
+            ),
+            styles,
+        )
+    )
+    story.append(
+        card(
+            "Quick Wins",
+            bullet_list(_top_items(assessment["quick_wins"], 5), styles),
+            styles,
+        )
+    )
+    story.append(
+        card(
+            "Recommended Services",
+            bullet_list(
+                _top_items(
+                    [
+                        _format_service(service)
+                        for service in assessment["recommended_services"]
+                    ],
+                    5,
+                ),
+                styles,
+            ),
+            styles,
+        )
+    )
+    story.append(PageBreak())
+
+
+def _category_score_table(category_scores, styles):
+    """Create a compact table of BI category scores."""
+
+    rows = [
+        [
+            Paragraph("<b>Category</b>", styles["MetricLabel"]),
+            Paragraph("<b>Score</b>", styles["MetricLabel"]),
+            Paragraph("<b>Confidence</b>", styles["MetricLabel"]),
+        ]
+    ]
+
+    for category_name, output in category_scores.items():
+        rows.append([
+            Paragraph(safe(_label(category_name)), styles["Body"]),
+            Paragraph(f"{output['score']}/100", styles["Body"]),
+            Paragraph(f"{output['confidence']}%", styles["Body"]),
+        ])
+
+    table = Table(
+        rows,
+        colWidths=[3.5 * inch, 1.4 * inch, 1.4 * inch],
+        repeatRows=1,
+    )
+    table.setStyle(
+        TableStyle(
+            [
+                ("BACKGROUND", (0, 0), (-1, 0), LIGHT_BLUE),
+                ("BOX", (0, 0), (-1, -1), 0.75, BORDER),
+                ("GRID", (0, 0), (-1, -1), 0.35, BORDER),
+                ("LEFTPADDING", (0, 0), (-1, -1), 7),
+                ("RIGHTPADDING", (0, 0), (-1, -1), 7),
+                ("TOPPADDING", (0, 0), (-1, -1), 5),
+                ("BOTTOMPADDING", (0, 0), (-1, -1), 5),
+                ("VALIGN", (0, 0), (-1, -1), "TOP"),
+            ]
+        )
+    )
+
+    return table
+
+
+def _format_opportunity(opportunity):
+    """Return business-readable revenue opportunity text."""
+
+    if isinstance(opportunity, dict):
+        return opportunity.get("opportunity", "")
+
+    return str(opportunity)
+
+
+def _format_service(service):
+    """Return business-readable recommended service text."""
+
+    revenue = service.get("estimated_revenue_improvement")
+
+    if isinstance(revenue, (int, float)):
+        revenue = f"${revenue:,.0f}"
+
+    return (
+        f"{service.get('service')} "
+        f"(Impact: {service.get('estimated_business_impact')}; "
+        f"Revenue: {revenue}; "
+        f"Difficulty: {service.get('implementation_difficulty')}; "
+        f"Time: {service.get('estimated_implementation_time')})"
+    )
+
+
+def _top_items(items, limit):
+    """Return report-ready list content with a fallback line."""
+
+    if not items:
+        return ["No confirmed items from available data."]
+
+    return items[:limit]
+
+
+def _label(value):
+    """Return a business-readable label for an internal key."""
+
+    return str(value).replace("_", " ").title()
 
 
 def build_distress_assessment(story, distress_assessment, styles):
@@ -753,6 +920,9 @@ def build_report():
     competitors = load_competitors(company_id)
     summary = generate_summary(company_id)
     distress_assessment = summary["distress_assessment"]
+    business_intelligence_assessment = summary[
+        "business_intelligence_assessment"
+    ]
 
     scores = {
         "automation_score":
@@ -786,6 +956,11 @@ def build_report():
 
     build_cover(story, company, summary, distress_assessment, styles)
     build_executive_summary(story, company, summary, styles)
+    build_business_intelligence_assessment(
+        story,
+        business_intelligence_assessment,
+        styles,
+    )
     build_distress_assessment(story, distress_assessment, styles)
     build_competitive_analysis(story, company, competitors, styles)
     build_recommendations(story, recommendations, styles)
